@@ -33,26 +33,34 @@ theme = 'PaperMod' # O el que elijas
 [params]
     env = "production"
     title = "st0rmESP"
-    description = "Writeups de Ciberseguridad y Retos CTF"
-    defaultTheme = "dark" # Forzar modo oscuro por defecto
-    showCodeCopyButtons = true # Botón para copiar código (clave para payloads)
-    displayFullPostContent = false
+    description = "Writeups de Ciberseguridad | CTF Player | Cryptography"
+    defaultTheme = "dark"
+    ShowCodeCopyButtons = true
     
-    [params.homeInfoParams]
-        Title = "Bienvenido a st0rmESP 🚩"
-        Content = "Aquí encontrarás mis resoluciones de máquinas de Hack The Box, TryHackMe y retos de criptografía."
+    # --- PERFIL DE LA PÁGINA PRINCIPAL ---
+    [params.profileMode]
+        enabled = true
+        title = "st0rmESP 🚩"
+        subtitle = "Bienvenido a mi rincón de ciberseguridad. Aquí comparto mis writeups de **HackTheBox**, retos de **criptografía** y mis notas de aprendizaje sobre seguridad ofensiva."
+        imageUrl = "https://github.com/st0rmESP.png" # Esto toma tu foto de GitHub automáticamente
+        imageWidth = 150
+        imageHeight = 150
+        imageTitle = "st0rmESP"
+        
+        [[params.profileMode.buttons]]
+            name = "Writeups"
+            url = "/posts"
+        [[params.profileMode.buttons]]
+            name = "Sobre mí"
+            url = "/about"
 
-    [params.assets]
-        disableHLJS = false # Activar resaltado de sintaxis
-[markup]
-  [markup.highlight]
-    noClasses = false
-    style = "monokai" # Estilo oscuro tipo terminal
-    lineNos = true    # Mostrar números de línea
-
-[[params.socialIcons]]
-    name = "github"
-    url = "https://github.com/st0rmESP"
-[[params.socialIcons]]
-    name = "linkedin"
-    url = "https://linkedin.com/in/tu-perfil"
+    # --- REDES SOCIALES ---
+    [[params.socialIcons]]
+        name = "github"
+        url = "https://github.com/st0rmESP"
+    [[params.socialIcons]]
+        name = "twitter"
+        url = "https://twitter.com/tu_usuario"
+    [[params.socialIcons]]
+        name = "linkedin"
+        url = "https://linkedin.com/in/tu_perfil"

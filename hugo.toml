@@ -54,7 +54,7 @@ theme = 'PaperMod'
         url = "https://github.com/st0rmESP"
     [[params.socialIcons]]
         name = "linkedin"
-        url = "https://linkedin.com/in/tu_perfil"
+        url = "https://linkedin.com/in/álvaro-lópez-hack"
 
 [menu]
     [[menu.main]]

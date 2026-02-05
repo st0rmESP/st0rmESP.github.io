@@ -21,14 +21,18 @@ theme = 'PaperMod'
     title = "st0rmESP"
     description = "Writeups de Ciberseguridad | CTF Player | Cryptography"
     defaultTheme = "dark"
-    copyright = "© 2026 st0rmESP" # Esto es lo único que saldrá ahora
+    copyright = "© 2026 st0rmESP"
     
-    # UI / UX
+    # UI / UX Settings
     ShowCodeCopyButtons = true
     showToc = true
     showShareButtons = true
     
-    # Perfil Home
+    # Iconos y Favicon
+    [params.assets]
+        favicon = "favicon.png"
+
+    # --- PERFIL DE LA PÁGINA PRINCIPAL ---
     [params.profileMode]
         enabled = true
         title = "st0rm 🚩"
@@ -44,6 +48,7 @@ theme = 'PaperMod'
             name = "Sobre mí"
             url = "/about"
 
+    # --- REDES SOCIALES ---
     [[params.socialIcons]]
         name = "github"
         url = "https://github.com/st0rmESP"

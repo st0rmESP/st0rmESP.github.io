@@ -1,6 +1,6 @@
 baseURL = 'https://st0rmESP.github.io/'
 languageCode = 'es'
-title = 'st0rmESP | Cyber Security Writeups'
+title = 'st0rm | Cyber Security & Writeups'
 theme = 'PaperMod'
 
 [markup]
@@ -29,7 +29,7 @@ theme = 'PaperMod'
     [params.profileMode]
         enabled = true
         title = "st0rmESP 🚩"
-        subtitle = "Bienvenido a mi rincón de ciberseguridad. Aquí comparto mis writeups de **HackTheBox**, retos de **criptografía** y mis notas de aprendizaje sobre seguridad ofensiva."
+        subtitle = "Bienvenido a mi rincón de ciberseguridad. Aquí comparto mis writeups de **HackTheBox** y otras plataformas, retos de **criptografía**, **reversing** y mis proyectos ciberseguridad."
         imageUrl = "https://github.com/st0rmESP.png"
         imageWidth = 150
         imageHeight = 150

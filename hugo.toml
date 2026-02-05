@@ -1,34 +1,20 @@
 baseURL = 'https://st0rmESP.github.io/'
 languageCode = 'es'
 title = 'st0rmESP | Cyber Security Writeups'
-theme = 'PaperMod' # O el que elijas
+theme = 'PaperMod'
 
 [markup]
   [markup.highlight]
     codeFences = true
     guessSyntax = true
     lineNos = true
-    style = "monokai" # Estilo de colores tipo hacker
+    style = "monokai"
   [markup.tableOfContents]
     endLevel = 3
     ordered = false
     startLevel = 2
-[menu]
-  [[menu.main]]
-    identifier = "posts"
-    name = "Blog"
-    url = "/posts/"
-    weight = 10
-  [[menu.main]]
-    identifier = "htb"
-    name = "HackTheBox"
-    url = "/categories/hackthebox/"
-    weight = 20
-  [[menu.main]]
-    identifier = "tags"
-    name = "Etiquetas"
-    url = "/tags/"
-    weight = 30
+  [markup.goldmark.renderer]
+    unsafe = true # Permite HTML en Markdown (útil para badges y detalles estéticos)
 
 [params]
     env = "production"
@@ -36,13 +22,15 @@ theme = 'PaperMod' # O el que elijas
     description = "Writeups de Ciberseguridad | CTF Player | Cryptography"
     defaultTheme = "dark"
     ShowCodeCopyButtons = true
+    showToc = true
+    showShareButtons = true
     
     # --- PERFIL DE LA PÁGINA PRINCIPAL ---
     [params.profileMode]
         enabled = true
         title = "st0rmESP 🚩"
         subtitle = "Bienvenido a mi rincón de ciberseguridad. Aquí comparto mis writeups de **HackTheBox**, retos de **criptografía** y mis notas de aprendizaje sobre seguridad ofensiva."
-        imageUrl = "https://github.com/st0rmESP.png" # Esto toma tu foto de GitHub automáticamente
+        imageUrl = "https://github.com/st0rmESP.png"
         imageWidth = 150
         imageHeight = 150
         imageTitle = "st0rmESP"
@@ -59,8 +47,22 @@ theme = 'PaperMod' # O el que elijas
         name = "github"
         url = "https://github.com/st0rmESP"
     [[params.socialIcons]]
-        name = "twitter"
-        url = "https://twitter.com/tu_usuario"
-    [[params.socialIcons]]
         name = "linkedin"
         url = "https://linkedin.com/in/tu_perfil"
+
+[menu]
+    [[menu.main]]
+        identifier = "posts"
+        name = "Blog"
+        url = "/posts/"
+        weight = 10
+    [[menu.main]]
+        identifier = "htb"
+        name = "HackTheBox"
+        url = "/categories/hackthebox/"
+        weight = 20
+    [[menu.main]]
+        identifier = "tags"
+        name = "Etiquetas"
+        url = "/tags/"
+        weight = 30

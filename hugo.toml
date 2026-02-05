@@ -1,4 +1,15 @@
 baseURL = 'https://st0rmESP.github.io/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
-theme = 'ananke'
+languageCode = 'es'
+title = 'st0rmESP | Cyber Security Writeups'
+theme = 'PaperMod' # O el que elijas
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = true
+    style = "monokai" # Estilo de colores tipo hacker
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2

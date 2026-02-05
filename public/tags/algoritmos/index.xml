@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Algoritmos on st0rmESP | Cyber Security &amp; Writeups</title>
+    <link>http://localhost:1313/tags/algoritmos/</link>
+    <description>Recent content in Algoritmos on st0rmESP | Cyber Security &amp; Writeups</description>
+    <generator>Hugo -- 0.155.2</generator>
+    <language>es</language>
+    <lastBuildDate>Thu, 05 Feb 2026 22:25:22 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/algoritmos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reto de hoy: Descifrar XOR</title>
+      <link>http://localhost:1313/posts/mi-segundo-post/</link>
+      <pubDate>Thu, 05 Feb 2026 22:25:22 +0100</pubDate>
+      <guid>http://localhost:1313/posts/mi-segundo-post/</guid>
+      <description>&lt;h3 id=&#34;-el-desafío-de-los-bits&#34;&gt;🧠 El desafío de los bits&lt;/h3&gt;
+&lt;p&gt;Hoy exploramos cómo manipular datos a nivel bajo. Un concepto fundamental en criptografía y optimización es el intercambio de valores entre variables.&lt;/p&gt;
+&lt;h4 id=&#34;métodos-de-intercambio&#34;&gt;Métodos de intercambio&lt;/h4&gt;
+&lt;p&gt;Para intercambiar dos valores en memoria, podemos usar diferentes aproximaciones según nuestras necesidades de rendimiento o claridad:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Suma y resta:&lt;/strong&gt; Un método ingenioso pero peligroso en lenguajes de bajo nivel por posibles desbordamientos (&lt;em&gt;overflow&lt;/em&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;XOR (Exclusive OR):&lt;/strong&gt; El truco clásico del hacking. Permite intercambiar valores sin usar una tercera variable de apoyo mediante manipulación de bits.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Variable temporal:&lt;/strong&gt; El estándar de la industria. Es el más seguro y fácil de leer para cualquier desarrollador.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;comparativa-técnica&#34;&gt;Comparativa Técnica&lt;/h4&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Método&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Velocidad&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Legibilidad&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Uso de Memoria&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;XOR&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;⚡ Alta&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;🔴 Baja&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Mínimo (0 extra)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Temporal&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;🟢 Media&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;🟢 Alta&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1 variable extra&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Aritmética&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;🟢 Media&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;🟡 Media&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0 extra&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;ejemplo-práctico-xor-swap-en-python&#34;&gt;Ejemplo práctico: XOR Swap en Python&lt;/h3&gt;
+&lt;p&gt;Aunque en Python el intercambio se hace de forma nativa con &lt;code&gt;a, b = b, a&lt;/code&gt;, entender la lógica tras el XOR es vital para la criptografía:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

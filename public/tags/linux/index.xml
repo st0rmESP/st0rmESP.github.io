@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Linux on st0rmESP | Cyber Security &amp; Writeups</title>
+    <link>http://localhost:1313/tags/linux/</link>
+    <description>Recent content in Linux on st0rmESP | Cyber Security &amp; Writeups</description>
+    <generator>Hugo -- 0.155.2</generator>
+    <language>es</language>
+    <lastBuildDate>Thu, 05 Feb 2026 21:55:36 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Máquina Titanic - HackTheBox</title>
+      <link>http://localhost:1313/posts/mi-primer-post/</link>
+      <pubDate>Thu, 05 Feb 2026 21:55:36 +0100</pubDate>
+      <guid>http://localhost:1313/posts/mi-primer-post/</guid>
+      <description>&lt;h2 id=&#34;-introducción&#34;&gt;🚩 Introducción&lt;/h2&gt;
+&lt;p&gt;Este es mi primer post generado con &lt;strong&gt;Hugo&lt;/strong&gt; y desplegado automáticamente mediante &lt;strong&gt;GitHub Actions&lt;/strong&gt;. En esta ocasión, documentaré los pasos seguidos para comprometer la máquina &lt;strong&gt;Titanic&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;qué-hemos-aprendido-hoy&#34;&gt;¿Qué hemos aprendido hoy?&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Lógica de programación:&lt;/strong&gt; Intercambiar variables sin usar temporales (usando aritmética o XOR).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Documentación:&lt;/strong&gt; Estructurar un &lt;code&gt;README.md&lt;/code&gt; profesional para repositorios de herramientas.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DevOps:&lt;/strong&gt; Configurar un flujo de trabajo CI/CD para un blog de ciberseguridad.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;-un-poco-de-código&#34;&gt;🛠️ Un poco de código&lt;/h2&gt;
+&lt;p&gt;Para que el tema renderice bien los bloques de código (Syntax Highlighting), podemos incluir fragmentos de nuestros exploits o scripts:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

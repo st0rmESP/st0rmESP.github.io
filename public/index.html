@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head>
+	<meta name="generator" content="Hugo 0.155.2"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>st0rmESP | Cyber Security &amp; Writeups</title>
+
+<meta name="description" content="Writeups de Ciberseguridad | CTF Player | Cryptography">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.da3211e5ef867bf2b75fd5a6515cfed7195c011e8ab735694e203810a827097b.css" integrity="sha256-2jIR5e&#43;Ge/K3X9WmUVz&#43;1xlcAR6KtzVpTiA4EKgnCXs=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/">
+  <meta property="og:site_name" content="st0rmESP | Cyber Security & Writeups">
+  <meta property="og:title" content="st0rmESP | Cyber Security & Writeups">
+  <meta property="og:description" content="Writeups de Ciberseguridad | CTF Player | Cryptography">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="st0rmESP | Cyber Security &amp; Writeups">
+<meta name="twitter:description" content="Writeups de Ciberseguridad | CTF Player | Cryptography">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "st0rmESP | Cyber Security \u0026 Writeups",
+  "url": "http://localhost:1313/",
+  "description": "Writeups de Ciberseguridad | CTF Player | Cryptography",
+  "logo": "http://localhost:1313/favicon.ico",
+  "sameAs": [
+      "https://github.com/st0rmESP", "https://linkedin.com/in/tu_perfil"
+  ]
+}
+</script>
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="st0rmESP | Cyber Security &amp; Writeups (Alt + H)">st0rmESP | Cyber Security &amp; Writeups</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/" title="Categorías">
+                    <span>Categorías</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"><div class="profile">
+    <div class="profile_inner">
+        <img draggable="false" src="https://github.com/st0rmESP.png" alt="profile image" title=""
+            height="120" width="120" />
+        <h1>st0rm 🚩</h1>
+        <span>Bienvenido a mi rincón de ciberseguridad. Aquí comparto mis writeups de <strong>HackTheBox</strong>, retos de <strong>criptografía</strong>, <strong>reversing</strong> y mis proyectos.</span><div class="social-icons" >
+    <a href="https://github.com/st0rmESP" target="_blank" rel="noopener noreferrer me"
+        title="Github">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+    </a>
+    <a href="https://linkedin.com/in/tu_perfil" target="_blank" rel="noopener noreferrer me"
+        title="Linkedin">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+    </a>
+</div>
+
+        <div class="buttons">
+            <a class="button" href="/posts" rel="noopener" title="Writeups">
+                <span class="button-inner">
+                    Writeups
+                </span>
+            </a>
+            <a class="button" href="/about" rel="noopener" title="Sobre mí">
+                <span class="button-inner">
+                    Sobre mí
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+
+    </main>
+    <footer class="footer">
+    <span>© 2026 st0rmESP</span>
+</footer>
+</body>
+
+</html>

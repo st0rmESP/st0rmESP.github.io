@@ -14,26 +14,28 @@ theme = 'PaperMod'
     ordered = false
     startLevel = 2
   [markup.goldmark.renderer]
-    unsafe = true # Permite HTML en Markdown (útil para badges y detalles estéticos)
+    unsafe = true
 
 [params]
     env = "production"
     title = "st0rmESP"
     description = "Writeups de Ciberseguridad | CTF Player | Cryptography"
     defaultTheme = "dark"
+    copyright = "© 2026 st0rmESP" # Esto es lo único que saldrá ahora
+    
+    # UI / UX
     ShowCodeCopyButtons = true
     showToc = true
     showShareButtons = true
     
-    # --- PERFIL DE LA PÁGINA PRINCIPAL ---
+    # Perfil Home
     [params.profileMode]
         enabled = true
         title = "st0rm 🚩"
-        subtitle = "Bienvenido a mi rincón de ciberseguridad. Aquí comparto mis writeups de **HackTheBox** y otras plataformas, retos de **criptografía**, **reversing** y mis proyectos ciberseguridad."
+        subtitle = "Bienvenido a mi rincón de ciberseguridad. Aquí comparto mis writeups de **HackTheBox**, retos de **criptografía**, **reversing** y mis proyectos."
         imageUrl = "https://github.com/st0rmESP.png"
-        imageWidth = 150
-        imageHeight = 150
-        imageTitle = "st0rmESP"
+        imageWidth = 120
+        imageHeight = 120
         
         [[params.profileMode.buttons]]
             name = "Writeups"
@@ -42,7 +44,6 @@ theme = 'PaperMod'
             name = "Sobre mí"
             url = "/about"
 
-    # --- REDES SOCIALES ---
     [[params.socialIcons]]
         name = "github"
         url = "https://github.com/st0rmESP"
@@ -57,12 +58,7 @@ theme = 'PaperMod'
         url = "/posts/"
         weight = 10
     [[menu.main]]
-        identifier = "htb"
-        name = "HackTheBox"
-        url = "/categories/hackthebox/"
+        identifier = "categories"
+        name = "Categorías"
+        url = "/categories/"
         weight = 20
-    [[menu.main]]
-        identifier = "tags"
-        name = "Etiquetas"
-        url = "/tags/"
-        weight = 30

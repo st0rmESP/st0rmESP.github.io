@@ -5,12 +5,11 @@ title = 'Mi Primer Post'
 +++
 
 ---
-title: "Mi primera incursión con Hugo"
-date: 2026-02-05T21:55:00Z
-draft: false
-description: "Aprendiendo a desplegar blogs estáticos en GitHub"
-tags: ["hugo", "github", "tutorial"]
-categories: ["desarrollo"]
+title: "Máquina Titanic - HackTheBox"
+date: 2026-02-05
+categories: ["HackTheBox"]
+tags: ["Linux", "Web", "LFI", "ImageMagick"]
+ShowToc: true
 ---
 
 ## ¡Hola Mundo!

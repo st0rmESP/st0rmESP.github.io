@@ -2,52 +2,80 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/tags/algoritmos/</loc>
-    <lastmod>2026-02-05T22:25:22+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2026-02-05T22:25:22+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/criptograf%C3%ADa/</loc>
-    <lastmod>2026-02-05T22:25:22+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/l%C3%B3gica/</loc>
-    <lastmod>2026-02-05T22:25:22+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/optimizaci%C3%B3n/</loc>
-    <lastmod>2026-02-05T22:25:22+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2026-02-05T22:25:22+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/mi-segundo-post/</loc>
-    <lastmod>2026-02-05T22:25:22+01:00</lastmod>
+    <loc>http://localhost:1313/about/</loc>
+    <lastmod>2026-02-24T01:39:53+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-02-05T22:25:22+01:00</lastmod>
+    <lastmod>2026-02-24T01:39:53+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2026-02-23T16:16:41+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/htb/</loc>
+    <lastmod>2026-02-23T16:16:41+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/writeups/htb/machines/medium/interpreter/</loc>
+    <lastmod>2026-02-23T16:16:41+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/machine/</loc>
+    <lastmod>2026-02-23T16:16:41+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/machines/</loc>
+    <lastmod>2026-02-23T16:16:41+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/medium/</loc>
+    <lastmod>2026-02-23T16:16:41+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/season10/</loc>
+    <lastmod>2026-02-23T16:16:41+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2026-02-05T22:25:22+01:00</lastmod>
+    <lastmod>2026-02-23T16:16:41+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/xor/</loc>
-    <lastmod>2026-02-05T22:25:22+01:00</lastmod>
+    <loc>http://localhost:1313/writeups/</loc>
+    <lastmod>2026-02-23T16:16:41+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/hackthebox/</loc>
-    <lastmod>2026-02-05T21:55:36+01:00</lastmod>
+    <loc>http://localhost:1313/writeups/htb/machines/medium/giveback/</loc>
+    <lastmod>2026-02-20T12:58:36+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/imagemagick/</loc>
-    <lastmod>2026-02-05T21:55:36+01:00</lastmod>
+    <loc>http://localhost:1313/tags/easy/</loc>
+    <lastmod>2026-02-18T18:28:48+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/lfi/</loc>
-    <lastmod>2026-02-05T21:55:36+01:00</lastmod>
+    <loc>http://localhost:1313/writeups/htb/machines/easy/wingdata/</loc>
+    <lastmod>2026-02-18T18:28:48+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/linux/</loc>
-    <lastmod>2026-02-05T21:55:36+01:00</lastmod>
+    <loc>http://localhost:1313/tags/advanced/</loc>
+    <lastmod>2026-02-13T13:19:33+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/mi-primer-post/</loc>
-    <lastmod>2026-02-05T21:55:36+01:00</lastmod>
+    <loc>http://localhost:1313/tags/prolab/</loc>
+    <lastmod>2026-02-13T13:19:33+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/web/</loc>
-    <lastmod>2026-02-05T21:55:36+01:00</lastmod>
+    <loc>http://localhost:1313/categories/prolabs/</loc>
+    <lastmod>2026-02-13T13:19:33+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/writeups/htb/prolabs/puppet/</loc>
+    <lastmod>2026-02-13T13:19:33+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/writeups/htb/machines/medium/pterodactyl/</loc>
+    <lastmod>2026-02-09T11:50:39+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/writeups/htb/challenges/hard/acknowledge-the-corn/</loc>
+    <lastmod>2026-02-07T14:00:29+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/challenge/</loc>
+    <lastmod>2026-02-07T14:00:29+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/challenges/</loc>
+    <lastmod>2026-02-07T14:00:29+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/forensics/</loc>
+    <lastmod>2026-02-07T14:00:29+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/hard/</loc>
+    <lastmod>2026-02-07T14:00:29+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/search/</loc>
+  </url><url>
+    <loc>http://localhost:1313/proyectos/</loc>
   </url>
 </urlset>

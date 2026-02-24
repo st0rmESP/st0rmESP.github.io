@@ -1,0 +1,167 @@
+{{- define "main" }}
+
+<div class="post-wrapper">
+    <article class="post-single">
+        <header class="post-header">
+            {{ partial "breadcrumbs.html" . }}
+            <h1 class="post-title entry-hint-parent">
+                {{ .Title }}
+            </h1>
+            <!-- El Meta se movió al final -->
+        </header>
+
+        {{- if .Params.active }}
+        <!-- CONTENIDO PROTEGIDO (MÁQUINA ACTIVA) -->
+        <div id="lock-screen"
+            style="padding: 60px 40px; text-align: center; border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; margin: 15vh auto; max-width: 800px; background: rgba(255,255,255,0.02);">
+            <div style="font-size: 2rem; margin-bottom: 20px; filter: grayscale(1); opacity: 0.8;">🔒</div>
+            <h2
+                style="color: #ffffff; margin-bottom: 15px; font-family: 'Courier New', monospace; letter-spacing: 2px;">
+                SECURE_ACCESS_REQUIRED</h2>
+            <p style="color: #888; font-size: 14px;">Contenido cifrado. Introduzca la clave de acceso para continuar.
+            </p>
+
+            <div style="margin-top: 30px; display: flex; justify-content: center; gap: 10px;">
+                <input type="password" id="pw-input" placeholder="PASS_PHRASE..."
+                    style="padding: 12px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: white; border-radius: 2px; width: 220px; font-family: 'Courier New', monospace; font-size: 12px; outline: none;">
+                <button onclick="unlockContent()"
+                    style="padding: 10px 25px; background: #ffffff; color: #000; border: none; border-radius: 2px; cursor: pointer; font-family: 'Courier New', monospace; font-weight: bold; font-size: 11px; transition: opacity 0.3s;">
+                    DECRYPT
+                </button>
+            </div>
+            <p id="error-msg"
+                style="color: #ff4444; margin-top: 20px; display: none; font-size: 12px; font-family: 'Courier New', monospace;">
+                [!] ACCESS_DENIED: Invalid passphrase.</p>
+        </div>
+
+        <div id="decrypted-content" class="post-content" style="display: none;"></div>
+
+        <script>
+            function unlockContent() {
+                const input = document.getElementById('pw-input').value;
+                const targetHash = "{{ .Params.password_hash }}";
+                const encryptedData = `{{ .RawContent }}`.trim();
+                const ivBase64 = "{{ .Params.iv }}";
+
+                const inputHash = CryptoJS.SHA256(input).toString(CryptoJS.enc.Base64);
+
+                if (inputHash === targetHash) {
+                    try {
+                        const key = CryptoJS.SHA256(input);
+                        const iv = CryptoJS.enc.Base64.parse(ivBase64);
+
+                        const cipherParams = CryptoJS.lib.CipherParams.create({
+                            ciphertext: CryptoJS.enc.Base64.parse(encryptedData)
+                        });
+
+                        const decrypted = CryptoJS.AES.decrypt(cipherParams, key, {
+                            iv: iv,
+                            mode: CryptoJS.mode.CBC,
+                            padding: CryptoJS.pad.Pkcs7
+                        });
+
+                        const decodedUtf8 = decrypted.toString(CryptoJS.enc.Utf8);
+                        if (!decodedUtf8) throw new Error("Llave incorrecta o datos corruptos");
+
+                        const container = document.getElementById('decrypted-content');
+                        container.innerHTML = marked.parse(decodedUtf8);
+
+                        // Generar TOC dinámico para contenido cifrado
+                        const tocContainer = document.querySelector('.post-toc');
+                        const headers = container.querySelectorAll('h1, h2, h3, h4, h5, h6');
+
+                        if (headers.length > 0) {
+                            let tocHtml = '<nav id="TableOfContents"><ul>';
+                            headers.forEach((header, index) => {
+                                const id = header.id || `header-${index}`;
+                                header.id = id;
+                                const level = header.tagName.toLowerCase();
+                                // Colores jerárquicos progresivos
+                                let color = '#555'; // H5, H6 por defecto
+                                if (level === 'h1') color = '#ddd';
+                                else if (level === 'h2') color = '#bbb';
+                                else if (level === 'h3') color = '#999';
+                                else if (level === 'h4') color = '#777';
+
+                                let padding = '';
+                                if (level === 'h2') padding = 'padding-left: 20px;';
+                                else if (level === 'h3') padding = 'padding-left: 40px;';
+                                else if (level === 'h4') padding = 'padding-left: 60px;';
+                                else if (level === 'h5') padding = 'padding-left: 80px;';
+
+                                tocHtml += `<li><a href="#${id}" style="${padding} color: ${color} !important;">${header.innerText}</a></li>`;
+                            });
+                            tocHtml += '</ul></nav>';
+
+                            const existingNav = tocContainer.querySelector('nav');
+                            if (existingNav) existingNav.remove();
+                            tocContainer.insertAdjacentHTML('beforeend', tocHtml);
+                        }
+
+                        document.getElementById('lock-screen').style.display = 'none';
+                        container.style.display = 'block';
+                        const sidebar = document.getElementById('dynamic-sidebar');
+                        if (sidebar) sidebar.style.display = 'block';
+                    } catch (e) {
+                        console.error("Error al decodificar:", e);
+                        document.getElementById('error-msg').innerText = "❌ Error en el formato del contenido.";
+                        document.getElementById('error-msg').style.display = 'block';
+                    }
+                } else {
+                    document.getElementById('error-msg').style.display = 'block';
+                }
+            }
+            document.getElementById('pw-input').addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') unlockContent();
+            });
+        </script>
+
+        {{- else }}
+        <!-- CONTENIDO NORMAL -->
+        {{- if .Content }}
+        <div class="post-content">
+            {{- if not (.Param "disableAnchoredHeadings") }}
+            {{- partial "anchored_headings.html" .Content -}}
+            {{- else }}{{ .Content }}{{ end }}
+        </div>
+        {{- end }}
+        {{- end }}
+
+        <footer class="post-footer">
+            {{- if not (.Param "hideMeta") }}
+            <div class="post-meta meta-badges">
+                {{- partial "post_meta.html" . -}}
+            </div>
+            {{- end }}
+        </footer>
+
+        {{- $categories := .Language.Params.Taxonomies.category | default "categories" }}
+        {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
+        
+        {{- $categoryTerms := ($.GetTerms $categories) }}
+        {{- $tagTerms := ($.GetTerms $tags) }}
+        
+        {{- if or $categoryTerms $tagTerms }}
+        <section class="post-tags-final">
+            <h3 style="margin-bottom: 16px; color: #fff; font-family: 'Courier New', monospace; font-size: 1.1rem; letter-spacing: 1px;">TAGS:</h3>
+            <div class="post-tags-container">
+                {{- range $categoryTerms }}
+                <a href="{{ .Permalink }}" class="final-tag-btn">#{{ .LinkTitle }}</a>
+                {{- end }}
+                {{- range $tagTerms }}
+                <a href="{{ .Permalink }}" class="final-tag-btn">#{{ .LinkTitle }}</a>
+                {{- end }}
+            </div>
+        </section>
+        {{- end }}
+    </article>
+
+    <aside class="post-sidebar" {{ if .Params.active }} style="display: none;" id="dynamic-sidebar" {{ end }}>
+        <div class="post-toc">
+            <h3>:: NAVEGACIÓN</h3>
+            {{ .TableOfContents }}
+        </div>
+    </aside>
+</div>
+
+{{- end }}

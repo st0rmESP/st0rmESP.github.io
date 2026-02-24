@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Lógica on st0rmESP | Cyber Security &amp; Writeups</title>
+    <title>Lógica on st0rmESP</title>
     <link>http://localhost:1313/categories/l%C3%B3gica/</link>
-    <description>Recent content in Lógica on st0rmESP | Cyber Security &amp; Writeups</description>
+    <description>Recent content in Lógica on st0rmESP</description>
     <generator>Hugo -- 0.155.2</generator>
     <language>es</language>
     <lastBuildDate>Thu, 05 Feb 2026 22:25:22 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/l%C3%B3gica/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Reto de hoy: Descifrar XOR</title>
-      <link>http://localhost:1313/posts/mi-segundo-post/</link>
+      <link>http://localhost:1313/writeups/mi-segundo-post/</link>
       <pubDate>Thu, 05 Feb 2026 22:25:22 +0100</pubDate>
-      <guid>http://localhost:1313/posts/mi-segundo-post/</guid>
+      <guid>http://localhost:1313/writeups/mi-segundo-post/</guid>
       <description>&lt;h3 id=&#34;-el-desafío-de-los-bits&#34;&gt;🧠 El desafío de los bits&lt;/h3&gt;
 &lt;p&gt;Hoy exploramos cómo manipular datos a nivel bajo. Un concepto fundamental en criptografía y optimización es el intercambio de valores entre variables.&lt;/p&gt;
 &lt;h4 id=&#34;métodos-de-intercambio&#34;&gt;Métodos de intercambio&lt;/h4&gt;

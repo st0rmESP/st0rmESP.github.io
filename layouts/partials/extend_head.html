@@ -1,0 +1,579 @@
+<style>
+    /* Restauramos el fondo de constelación original */
+    #constellation-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        pointer-events: none;
+        opacity: 0.8;
+        /* Recuperamos visibilidad */
+    }
+
+    /* Título original (con el efecto de terminal verde) */
+    .profile_inner h1 {
+        font-family: 'Courier New', Courier, monospace;
+        text-transform: uppercase;
+        background: linear-gradient(90deg, #00ff41, #008f11);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+        letter-spacing: 2px;
+    }
+
+    .profile_inner h1::after {
+        content: '_';
+        animation: blink 1s step-end infinite;
+        color: #00ff41;
+        -webkit-text-fill-color: #00ff41;
+    }
+
+    @keyframes blink {
+
+        0%,
+        100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0;
+        }
+    }
+
+    /* --- CABECERAS DE PÁGINA --- */
+    .page-header h1 {
+        font-family: 'Courier New', monospace !important;
+        font-size: 2.2rem !important;
+        color: #ffffff !important;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        margin-bottom: 20px !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 15px;
+    }
+
+    .post-content {
+        font-size: 18px !important;
+        color: #aaa !important;
+        line-height: 1.8;
+    }
+
+    .post-content img {
+        display: block !important;
+        margin: 30px auto !important;
+        max-width: 100% !important;
+        height: auto !important;
+        border-radius: 4px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .post-content h3 {
+        font-family: 'Courier New', monospace !important;
+        color: rgba(255, 255, 255, 0.4) !important;
+        font-size: 1rem !important;
+        margin-top: 10px !important;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 10px;
+    }
+
+    /* Botones de Plataforma (Índices) */
+    .post-content ul {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px !important;
+        list-style: none !important;
+        /* Quitar puntos */
+        padding-left: 0 !important;
+        /* Quitar sangría */
+    }
+
+    .post-content ul li a {
+        color: #fff !important;
+        font-family: 'Courier New', monospace;
+        font-size: 1.6rem !important;
+        /* Letra más grande */
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 10px 20px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        display: inline-block;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: rgba(255, 255, 255, 0.02);
+        width: fit-content;
+        position: relative;
+    }
+
+    .post-content ul li a:hover {
+        color: #00ff41 !important;
+        border-color: #00ff41 !important;
+        background: rgba(0, 255, 65, 0.05) !important;
+        box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+        transform: translateX(10px);
+    }
+
+    .post-content ul li a::before {
+        content: "";
+    }
+
+    hr {
+        display: none !important;
+        /* Eliminar barra separadora */
+    }
+
+    /* Menú Horizontal de Dificultades / Filtros */
+    .difficulty-menu {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        gap: 12px !important;
+        margin: 30px 0 60px 0 !important;
+        list-style: none !important;
+        padding: 0 !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 30px;
+    }
+
+    .difficulty-menu li {
+        list-style: none !important;
+        /* Garantizar que no haya puntos */
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .difficulty-menu li a {
+        background: rgba(255, 255, 255, 0.02) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        color: #eee !important;
+        padding: 14px 30px !important;
+        font-family: 'Courier New', monospace !important;
+        font-size: 1.3rem !important;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 4px;
+        text-decoration: none !important;
+        display: block;
+    }
+
+
+
+    .difficulty-menu li a:hover {
+        border-color: #00ff41 !important;
+        color: #00ff41 !important;
+        background: rgba(0, 255, 65, 0.05) !important;
+        transform: translateY(-2px);
+    }
+
+    /* Ocultar Solo elementos estructurales del tema, NO los posts */
+    .list-header,
+    .list-footer,
+    .comments,
+    .share-buttons,
+    .sub-section,
+    .archive-posts {
+        display: none !important;
+    }
+
+    /* --- ESTRUCTURA DE POST CON SIDEBAR (TOC) --- */
+    .main {
+        max-width: 1200px !important;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .post-wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 50px;
+        position: relative;
+        align-items: flex-start;
+    }
+
+    .post-single {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .post-sidebar {
+        width: 250px;
+        position: sticky;
+        top: 100px;
+        height: fit-content;
+        display: none;
+    }
+
+    @media screen and (min-width: 1100px) {
+        .post-sidebar {
+            display: block;
+        }
+    }
+
+    .post-toc {
+        padding: 0;
+        font-family: 'Courier New', monospace;
+    }
+
+    .post-toc h3 {
+        font-size: 0.7rem !important;
+        color: #fff !important;
+        letter-spacing: 3px !important;
+        margin-bottom: 25px !important;
+        border: none !important;
+        padding: 0 !important;
+    }
+
+    .post-toc nav ul {
+        list-style: none !important;
+        padding-left: 0 !important;
+        margin: 0 !important;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .post-toc nav ul ul {
+        margin-top: 12px !important;
+        padding-left: 18px !important;
+        border-left: 1px solid rgba(255, 255, 255, 0.05);
+        margin-left: 4px !important;
+    }
+
+    .post-toc nav a {
+        text-decoration: none !important;
+        font-size: 0.85rem !important;
+        transition: all 0.3s ease;
+        display: block;
+        line-height: 1.4;
+    }
+
+    .post-toc nav>ul>li>a {
+        color: #ddd !important;
+    }
+
+    .post-toc nav>ul>li>ul>li>a {
+        color: #bbb !important;
+    }
+
+    .post-toc nav>ul>li>ul>li>ul>li>a {
+        color: #999 !important;
+    }
+
+    .post-toc nav>ul>li>ul>li>ul>li>ul>li>a {
+        color: #777 !important;
+    }
+
+    .post-toc nav>ul>li>ul>li>ul>li>ul>li>ul a {
+        color: #555 !important;
+    }
+
+    .post-toc nav a:hover {
+        color: #fff !important;
+        padding-left: 4px;
+    }
+
+    /* Ocultar el TOC nativo del tema si existe fuera de nuestro aside */
+    .toc {
+        display: none !important;
+    }
+
+    /* --- ESTILO DE CONTENIDO --- */
+
+    .post-entry {
+        background: transparent !important;
+        border: none !important;
+        padding: 15px 0 !important;
+        margin-bottom: 40px !important;
+        transition: all 0.3s ease !important;
+        position: relative;
+        box-shadow: none !important;
+    }
+
+    /* Solo una pequeña marca blanca como pediste, pero minimalista */
+    .post-entry::before {
+        content: "";
+        position: absolute;
+        left: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2px;
+        height: 0;
+        background: #ffffff;
+        transition: height 0.3s ease;
+    }
+
+    .post-entry:hover {
+        transform: translateX(10px);
+    }
+
+    .post-entry:hover::before {
+        height: 70%;
+    }
+
+    .entry-header h2 {
+        color: #eee !important;
+        font-family: 'Courier New', monospace;
+        font-size: 1.7rem !important;
+        font-weight: 400;
+        margin-bottom: 8px !important;
+        letter-spacing: 0.5px;
+    }
+
+    .post-entry:hover h2 {
+        color: #00ff41 !important;
+        /* El verde solo en el hover del título */
+    }
+
+    .entry-content {
+        color: #999 !important;
+        font-size: 15.5px !important;
+        line-height: 1.7 !important;
+        margin-bottom: 12px;
+    }
+
+    /* Metadata simplificada al máximo */
+    .entry-footer {
+        color: #555 !important;
+        font-family: 'Courier New', monospace !important;
+        font-size: 11px !important;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .post-entry:hover .entry-footer {
+        color: #888 !important;
+    }
+
+    /* --- SISTEMA DE FILTRADO DINÁMICO --- */
+    .filter-group {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        gap: 12px !important;
+        margin: 15px 0 10px 0 !important;
+        padding-bottom: 10px;
+    }
+
+    .filter-btn {
+        background: rgba(255, 255, 255, 0.02) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        color: #fff !important;
+        padding: 8px 16px !important;
+        font-family: 'Courier New', monospace !important;
+        font-size: 0.9rem !important;
+        text-decoration: none !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 4px;
+        cursor: pointer;
+        display: inline-block !important;
+        outline: none;
+        user-select: none;
+    }
+
+    .filter-btn:hover {
+        border-color: rgba(255, 255, 255, 0.4) !important;
+        color: #fff !important;
+    }
+
+    .filter-btn.active {
+        border-color: #00ff41 !important;
+        color: #00ff41 !important;
+        background: rgba(0, 255, 65, 0.05) !important;
+        box-shadow: 0 0 15px rgba(0, 255, 65, 0.1);
+    }
+
+    /* Botón Unlock especial - solo toque verde sutil */
+    .filter-btn-unlock {
+        color: #00ff41 !important;
+    }
+
+    .filter-btn-unlock.active {
+        color: #00ff41 !important;
+        border-color: rgba(0, 255, 65, 0.2) !important;
+    }
+
+    /* Botón Clear All - rojo */
+    .filter-btn-clear {
+        border-color: rgba(255, 77, 77, 0.2) !important;
+        color: #ff4d4d !important;
+    }
+
+    .filter-btn-clear:hover {
+        border-color: #ff4d4d !important;
+        background: rgba(255, 77, 77, 0.08) !important;
+    }
+
+    /* Botones de tags en el footer */
+    .entry-tag-btn {
+        background: rgba(255, 255, 255, 0.02) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        color: #888 !important;
+        padding: 4px 10px !important;
+        font-family: 'Courier New', monospace !important;
+        font-size: 0.7rem !important;
+        text-decoration: none !important;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border-radius: 3px;
+        cursor: default;
+        display: inline-block !important;
+        outline: none;
+        user-select: none;
+        transition: all 0.2s ease;
+    }
+
+    .entry-tag-btn:hover {
+        border-color: rgba(255, 255, 255, 0.3) !important;
+        color: #aaa !important;
+    }
+
+    /* Estilos para tags al final de artículos individuales */
+    .post-tags-final {
+        margin-top: 40px;
+        padding: 24px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(230, 230, 230, 0.05));
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 6px;
+    }
+
+    .post-tags-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .final-tag-btn {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(220, 220, 220, 0.1)) !important;
+        border: 1.5px solid rgba(255, 255, 255, 0.4) !important;
+        color: #ffffff !important;
+        padding: 8px 14px !important;
+        font-family: 'Courier New', monospace !important;
+        font-size: 0.8rem !important;
+        font-weight: 600 !important;
+        text-decoration: none !important;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        border-radius: 4px;
+        cursor: pointer;
+        display: inline-block !important;
+        outline: none;
+        user-select: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+    }
+
+    .final-tag-btn:hover {
+        border-color: rgba(255, 255, 255, 0.8) !important;
+        color: #ffffff !important;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(220, 220, 220, 0.15)) !important;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.35), inset 0 0 10px rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+    }
+
+    /* Animación del fondo (Constelación) ya está por JS, así que solo controlamos el estilo */
+</style>
+
+<!-- Librerías para contenido cifrado -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<!-- Sistema de Filtrado Dinámico JS -->
+<script>
+    // Ocultar líneas de solo hashtags en todo el contenido
+    function hideHashtagLines() {
+        // Aplicar a entry-content (listas) y post-content (artículos individuales)
+        const contentAreas = document.querySelectorAll('.entry-content, .post-content');
+        contentAreas.forEach(entry => {
+            const paragraphs = entry.querySelectorAll('p');
+            paragraphs.forEach(p => {
+                const text = p.textContent.trim();
+                // Detectar si el párrafo contiene SOLO hashtags (con espacios entre ellos)
+                if (/^(#[\w]+\s*)+$/.test(text)) {
+                    // Ocultar el párrafo completamente
+                    p.style.display = 'none';
+                }
+            });
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Ejecutar inmediatamente
+        hideHashtagLines();
+        // Ejecutar después de un pequeño delay para asegurar
+        setTimeout(hideHashtagLines, 100);
+
+        const buttons = document.querySelectorAll('.filter-btn[data-filter]');
+        const posts = document.querySelectorAll('article[data-filters]');
+
+        console.log("Filtros listos. Posts en página:", posts.length);
+
+        function updateView() {
+            const activeButtons = Array.from(buttons).filter(b => b.classList.contains('active'));
+            let visibleCount = 0;
+
+            posts.forEach(post => {
+                const rawPostData = post.getAttribute('data-filters') || "";
+                const postFilters = rawPostData.toLowerCase().split(/[\s,]+/).filter(f => f.trim() !== "");
+
+                // Lógica: El post debe coincidir con TODOS los botones activos.
+                // Un botón coincide si el post tiene CUALQUIERA de las palabras del data-filter de ese botón.
+                const matchesAll = activeButtons.every(btn => {
+                    const btnValues = btn.getAttribute('data-filter').toLowerCase().split(' ');
+                    return btnValues.some(val => postFilters.includes(val));
+                });
+
+                if (activeButtons.length === 0 || matchesAll) {
+                    post.style.setProperty('display', 'block', 'important');
+                    post.style.opacity = '1';
+                    visibleCount++;
+                } else {
+                    post.style.setProperty('display', 'none', 'important');
+                }
+            });
+
+            console.log("Filtros activos:", activeButtons.map(b => b.textContent.trim()), "| Mostrando:", visibleCount);
+
+            // Mensaje si no hay resultados
+            let noResults = document.getElementById('no-results-msg');
+            if (visibleCount === 0 && activeButtons.length > 0) {
+                if (!noResults) {
+                    noResults = document.createElement('div');
+                    noResults.id = 'no-results-msg';
+                    noResults.innerHTML = '<p style="text-align:center; padding: 40px; color: #555; font-family: monospace;">[!] NO SE ENCONTRARON RESULTADOS PARA ESTA COMBINACIÓN</p>';
+                    document.querySelector('.main').appendChild(noResults);
+                }
+            } else if (noResults) {
+                noResults.remove();
+            }
+        }
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                btn.classList.toggle('active');
+                updateView();
+            });
+        });
+
+        // Botón Clear All
+        const clearBtn = document.getElementById('clear-filters');
+        if (clearBtn) {
+            clearBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                buttons.forEach(btn => btn.classList.remove('active'));
+                updateView();
+            });
+        }
+
+        // Forzar vista inicial
+        updateView();
+    });
+</script>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>MEDIUM on st0rmESP</title>
+    <link>http://localhost:1313/writeups/htb/machines/medium/</link>
+    <description>Recent content in MEDIUM on st0rmESP</description>
+    <generator>Hugo -- 0.155.2</generator>
+    <language>es</language>
+    <lastBuildDate>Mon, 23 Feb 2026 16:16:41 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/writeups/htb/machines/medium/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Interpreter</title>
+      <link>http://localhost:1313/writeups/htb/machines/medium/interpreter/</link>
+      <pubDate>Mon, 23 Feb 2026 16:16:41 +0100</pubDate>
+      <guid>http://localhost:1313/writeups/htb/machines/medium/interpreter/</guid>
+      <description>[ CONTENIDO PROTEGIDO. REQUIERE ACCESO AUTORIZADO ]</description>
+    </item>
+    <item>
+      <title>Giveback</title>
+      <link>http://localhost:1313/writeups/htb/machines/medium/giveback/</link>
+      <pubDate>Fri, 20 Feb 2026 12:58:36 +0100</pubDate>
+      <guid>http://localhost:1313/writeups/htb/machines/medium/giveback/</guid>
+      <description>[ CONTENIDO PROTEGIDO. REQUIERE ACCESO AUTORIZADO ]</description>
+    </item>
+    <item>
+      <title>Pterodactyl</title>
+      <link>http://localhost:1313/writeups/htb/machines/medium/pterodactyl/</link>
+      <pubDate>Mon, 09 Feb 2026 11:50:39 +0100</pubDate>
+      <guid>http://localhost:1313/writeups/htb/machines/medium/pterodactyl/</guid>
+      <description>&lt;p&gt;#machine #medium #season10&lt;/p&gt;
+&lt;h1 id=&#34;enumeración&#34;&gt;Enumeración&lt;/h1&gt;
+&lt;p&gt;Empezamos realizando un escaneo de puertos con la herramienta nmap.
+&lt;code&gt;nmap -p- -sV -sC -T 3 --min-rate=5000  10.129.8.222 -oN nmap&lt;/code&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/writeups/htb/machines/medium/pterodactyl/images/Pterodactyl%201.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;puerto-80&#34;&gt;Puerto 80&lt;/h2&gt;
+&lt;p&gt;Como vemos que se utiliza virtual hosting vamos a añadir pterodactyl.htb a nuestro /etc/hosts
+&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/writeups/htb/machines/medium/pterodactyl/images/Pterodactyl%201.png&#34;&gt;
+Ahora vamos a realizar una enumeración de subdirectorios y archivos para ver si encontramos algo ya que en la pagina actual no hay nada interesante.
+&lt;code&gt;gobuster dir -u http://pterodactyl.htb -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,conf,bak,txt,env,zip,log -t 50&lt;/code&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/writeups/htb/machines/medium/pterodactyl/images/Pterodactyl-3.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

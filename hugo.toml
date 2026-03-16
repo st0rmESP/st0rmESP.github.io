@@ -20,6 +20,7 @@ theme = 'PaperMod'
     unsafe = true
 
 [params]
+    author = "st0rm"
     env = "production"
     title = "st0rmESP"
     description = "Writeups de Ciberseguridad | CTF Player | Cryptography"
